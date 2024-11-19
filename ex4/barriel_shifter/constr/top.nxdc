@@ -1,0 +1,12 @@
+top=top
+
+clk BTNU
+din (SW7,SW6,SW5,SW4,SW3,SW2,SW1,SW0)
+st (SW13)
+select_dir SW15
+select_ult SW14
+shamt (SW11,SW10,SW9)
+led_high (LD7,LD6,LD5,LD4)
+led_low (LD3,LD2,LD1,LD0)
+segA (SEG1A, SEG1B, SEG1C, SEG1D, SEG1E, SEG1F, SEG1G)
+segB (SEG0A, SEG0B, SEG0C, SEG0D, SEG0E, SEG0F, SEG0G)
