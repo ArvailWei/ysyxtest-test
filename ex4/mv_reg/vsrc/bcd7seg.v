@@ -22,7 +22,7 @@ module bcd7seg(
             4'b1101:h=7'b1000010;//d13
             4'b1110:h=7'b0110000;//E14
             4'b1111:h=7'b0111000;//F15
-            default:h=7'b11111111;//空
+            default:h=7'b1111111;//空
         endcase
     end 
 endmodule

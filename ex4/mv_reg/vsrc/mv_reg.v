@@ -1,8 +1,8 @@
-module mv_reg(clk,clr,in_date,out_date,select,decide);
-    input clk,clr;
-    input decide;
+module mv_reg(clk,in_date,out_date,select,decide);
+    input clk;
+    input decide;//串行输入选择
     input [7:0] in_date;
-    input [2:0] select;
+    input [2:0] select;//功能选择
     output reg [7:0] out_date;
     
     always @(posedge clk) begin
@@ -15,11 +15,11 @@ module mv_reg(clk,clr,in_date,out_date,select,decide);
             end
             //逻辑右
             2:begin
-                out_date <= {1'b0,out_date[6:0]};
+                out_date <= {1'b0,out_date[7:1]};
             end
             //逻辑左
             3:begin
-                out_date <= {out_date[7:1],1'b0};
+                out_date <= {out_date[6:0],1'b0};
             end
             //算术右
             4:begin

@@ -1,37 +1,27 @@
-`timescale 1ns/1ps//进行的秒数/精度
 
-module top(clk,clr,date,q,select,decide,segA,segB,segC,segD,segE,segF,segG);
-    reg clr;
-    reg clk;
+module top(clk,date,q,select,decide,segA,segB,led_high,led_low);
+
+    input clk;
     input [7:0] date;
     input [2:0] select;
+    input decide;
     output reg [7:0] q;
-    output reg [6:0] segA,segB,segC,segD,segE,segF,segG;
+    output reg [6:0] segA,segB;
+    output reg [3:0] led_high,led_low;
 
-    initial begin
-        clk = 0;
-        clr = 0;
-        forever #20000 clr = ~clr;
-        forever #5 clk = ~clk;
-    end
-
-    #10
+    assign led_high = q[7:4];
+    assign led_low = q[3:0];
 
     mv_reg my_reg(
         .clk(clk),
-        .clr(clr),
-        .date(in_date),
+        .in_date(date),
         .select(select),
         .decide(decide),
-        .q(out_date)
-    )
+        .out_date(q)
+    );
 
-    bcd7seg seg0(.q[0],.h(segA));
-    bcd7seg seg1(.q[1],.h(segB));
-    bcd7seg seg2(.q[2],.h(segC));
-    bcd7seg seg3(.q[3],.h(segD));
-    bcd7seg seg4(.q[4],.h(segE));
-    bcd7seg seg5(.q[5],.h(segF));
-    bcd7seg seg6(.q[6],.h(segG));
+    bcd7seg seg0(.b(led_high),.h(segA));
+    bcd7seg seg1(.b(led_low),.h(segB));
+
 
 endmodule
