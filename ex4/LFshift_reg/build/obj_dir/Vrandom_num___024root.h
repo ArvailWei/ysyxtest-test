@@ -14,21 +14,24 @@ class Vrandom_num___024root final : public VerilatedModule {
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
+    CData/*0:0*/ random_num__DOT__i;
     VL_IN8(st,0,0);
     VL_IN8(din,7,0);
     VL_OUT8(dout,7,0);
     VL_OUT8(led,7,0);
     VL_OUT8(seg0,6,0);
     VL_OUT8(seg1,6,0);
+    VL_IN8(rst,0,0);
     CData/*0:0*/ random_num__DOT__myreg__DOT__dcul;
+    CData/*0:0*/ __Vtrigrprev__TOP__random_num__DOT__i;
     CData/*0:0*/ __Vtrigrprev__TOP__clk;
     CData/*0:0*/ __VactContinue;
-    IData/*31:0*/ random_num__DOT__myreg__DOT__i;
+    IData/*31:0*/ random_num__DOT__myclk__DOT__count;
     IData/*31:0*/ __VstlIterCount;
     IData/*31:0*/ __VactIterCount;
     VlTriggerVec<1> __VstlTriggered;
-    VlTriggerVec<1> __VactTriggered;
-    VlTriggerVec<1> __VnbaTriggered;
+    VlTriggerVec<2> __VactTriggered;
+    VlTriggerVec<2> __VnbaTriggered;
 
     // INTERNAL VARIABLES
     Vrandom_num__Syms* const vlSymsp;

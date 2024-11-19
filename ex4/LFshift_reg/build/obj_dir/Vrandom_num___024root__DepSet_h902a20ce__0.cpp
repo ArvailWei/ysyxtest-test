@@ -12,12 +12,32 @@ void Vrandom_num___024root___eval_act(Vrandom_num___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrandom_num___024root___eval_act\n"); );
 }
 
-extern const VlUnpacked<CData/*6:0*/, 16> Vrandom_num__ConstPool__TABLE_h25bdbd99_0;
-
 VL_INLINE_OPT void Vrandom_num___024root___nba_sequent__TOP__0(Vrandom_num___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vrandom_num__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrandom_num___024root___nba_sequent__TOP__0\n"); );
+    // Init
+    IData/*31:0*/ __Vdly__random_num__DOT__myclk__DOT__count;
+    __Vdly__random_num__DOT__myclk__DOT__count = 0;
+    // Body
+    __Vdly__random_num__DOT__myclk__DOT__count = vlSelf->random_num__DOT__myclk__DOT__count;
+    if ((0x4c4b40U == vlSelf->random_num__DOT__myclk__DOT__count)) {
+        __Vdly__random_num__DOT__myclk__DOT__count = 0U;
+        vlSelf->random_num__DOT__i = 1U;
+    } else {
+        __Vdly__random_num__DOT__myclk__DOT__count 
+            = ((IData)(1U) + vlSelf->random_num__DOT__myclk__DOT__count);
+        vlSelf->random_num__DOT__i = 0U;
+    }
+    vlSelf->random_num__DOT__myclk__DOT__count = __Vdly__random_num__DOT__myclk__DOT__count;
+}
+
+extern const VlUnpacked<CData/*6:0*/, 16> Vrandom_num__ConstPool__TABLE_h25bdbd99_0;
+
+VL_INLINE_OPT void Vrandom_num___024root___nba_sequent__TOP__1(Vrandom_num___024root* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    Vrandom_num__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vrandom_num___024root___nba_sequent__TOP__1\n"); );
     // Init
     CData/*3:0*/ __Vtableidx1;
     __Vtableidx1 = 0;
@@ -35,16 +55,11 @@ VL_INLINE_OPT void Vrandom_num___024root___nba_sequent__TOP__0(Vrandom_num___024
         __Vdly__random_num__DOT__myreg__DOT__dcul = 0U;
     } else {
         __Vdly__random_num__DOT__myreg__DOT__dcul = 0U;
-        vlSelf->random_num__DOT__myreg__DOT__i = 0U;
-        while (VL_GTS_III(32, 0xffU, vlSelf->random_num__DOT__myreg__DOT__i)) {
-            __Vdly__dout = (((IData)(vlSelf->random_num__DOT__myreg__DOT__dcul) 
-                             << 7U) | (0x7fU & ((IData)(vlSelf->dout) 
-                                                >> 1U)));
-            __Vdly__random_num__DOT__myreg__DOT__dcul 
-                = (1U & VL_REDXOR_8((0x1dU & (IData)(vlSelf->dout))));
-            vlSelf->random_num__DOT__myreg__DOT__i 
-                = ((IData)(1U) + vlSelf->random_num__DOT__myreg__DOT__i);
-        }
+        __Vdly__dout = (((IData)(vlSelf->random_num__DOT__myreg__DOT__dcul) 
+                         << 7U) | (0x7fU & ((IData)(vlSelf->dout) 
+                                            >> 1U)));
+        __Vdly__random_num__DOT__myreg__DOT__dcul = 
+            (1U & VL_REDXOR_8((0x1dU & (IData)(vlSelf->dout))));
     }
     vlSelf->random_num__DOT__myreg__DOT__dcul = __Vdly__random_num__DOT__myreg__DOT__dcul;
     vlSelf->dout = __Vdly__dout;
@@ -62,8 +77,11 @@ void Vrandom_num___024root___eval_nba(Vrandom_num___024root* vlSelf) {
     Vrandom_num__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrandom_num___024root___eval_nba\n"); );
     // Body
-    if (vlSelf->__VnbaTriggered.at(0U)) {
+    if (vlSelf->__VnbaTriggered.at(1U)) {
         Vrandom_num___024root___nba_sequent__TOP__0(vlSelf);
+    }
+    if (vlSelf->__VnbaTriggered.at(0U)) {
+        Vrandom_num___024root___nba_sequent__TOP__1(vlSelf);
     }
 }
 
@@ -80,7 +98,7 @@ void Vrandom_num___024root___eval(Vrandom_num___024root* vlSelf) {
     Vrandom_num__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrandom_num___024root___eval\n"); );
     // Init
-    VlTriggerVec<1> __VpreTriggered;
+    VlTriggerVec<2> __VpreTriggered;
     IData/*31:0*/ __VnbaIterCount;
     CData/*0:0*/ __VnbaContinue;
     // Body
@@ -133,5 +151,7 @@ void Vrandom_num___024root___eval_debug_assertions(Vrandom_num___024root* vlSelf
         Verilated::overWidthError("st");}
     if (VL_UNLIKELY((vlSelf->clk & 0xfeU))) {
         Verilated::overWidthError("clk");}
+    if (VL_UNLIKELY((vlSelf->rst & 0xfeU))) {
+        Verilated::overWidthError("rst");}
 }
 #endif  // VL_DEBUG

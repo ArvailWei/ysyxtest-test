@@ -17,6 +17,7 @@ VL_ATTR_COLD void Vrandom_num___024root___eval_initial(Vrandom_num___024root* vl
     Vrandom_num__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrandom_num___024root___eval_initial\n"); );
     // Body
+    vlSelf->__Vtrigrprev__TOP__random_num__DOT__i = vlSelf->random_num__DOT__i;
     vlSelf->__Vtrigrprev__TOP__clk = vlSelf->clk;
 }
 
@@ -115,7 +116,10 @@ VL_ATTR_COLD void Vrandom_num___024root___dump_triggers__act(Vrandom_num___024ro
         VL_DBG_MSGF("         No triggers active\n");
     }
     if (vlSelf->__VactTriggered.at(0U)) {
-        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge clk)\n");
+        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge random_num.i)\n");
+    }
+    if (vlSelf->__VactTriggered.at(1U)) {
+        VL_DBG_MSGF("         'act' region trigger index 1 is active: @(posedge clk)\n");
     }
 }
 #endif  // VL_DEBUG
@@ -130,7 +134,10 @@ VL_ATTR_COLD void Vrandom_num___024root___dump_triggers__nba(Vrandom_num___024ro
         VL_DBG_MSGF("         No triggers active\n");
     }
     if (vlSelf->__VnbaTriggered.at(0U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge clk)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge random_num.i)\n");
+    }
+    if (vlSelf->__VnbaTriggered.at(1U)) {
+        VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(posedge clk)\n");
     }
 }
 #endif  // VL_DEBUG
@@ -147,7 +154,10 @@ VL_ATTR_COLD void Vrandom_num___024root___ctor_var_reset(Vrandom_num___024root* 
     vlSelf->led = 0;
     vlSelf->seg0 = 0;
     vlSelf->seg1 = 0;
+    vlSelf->rst = 0;
+    vlSelf->random_num__DOT__i = 0;
     vlSelf->random_num__DOT__myreg__DOT__dcul = 0;
-    vlSelf->random_num__DOT__myreg__DOT__i = 0;
+    vlSelf->random_num__DOT__myclk__DOT__count = 0;
+    vlSelf->__Vtrigrprev__TOP__random_num__DOT__i = 0;
     vlSelf->__Vtrigrprev__TOP__clk = 0;
 }

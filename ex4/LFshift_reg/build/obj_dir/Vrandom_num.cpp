@@ -17,6 +17,7 @@ Vrandom_num::Vrandom_num(VerilatedContext* _vcontextp__, const char* _vcname__)
     , led{vlSymsp->TOP.led}
     , seg0{vlSymsp->TOP.seg0}
     , seg1{vlSymsp->TOP.seg1}
+    , rst{vlSymsp->TOP.rst}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context
