@@ -6,7 +6,7 @@
 static TOP_NAME dut;
 //static Vrandom_num* top;
 
-void nvboard_bind_all_pins(TOP_NAME* top);
+void nvboard_bind_all_pins(TOP_NAME* random_num);
  
  //实现clk功能
 static void single_cycle(){
