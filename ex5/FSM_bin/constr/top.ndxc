@@ -1,0 +1,6 @@
+top = FSM_bin
+
+clk BTNU,
+rst SW0,
+din SW1,
+out LD0,
