@@ -243,7 +243,7 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__6(Vtop___024root* vlSelf) 
         [__Vtableidx7];
 }
 
-extern const VlUnpacked<CData/*7:0*/, 256> Vtop__ConstPool__TABLE_h60869218_0;
+extern const VlUnpacked<CData/*7:0*/, 256> Vtop__ConstPool__TABLE_h768f7345_0;
 
 VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__7(Vtop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -254,7 +254,7 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__7(Vtop___024root* vlSelf) 
     __Vtableidx1 = 0;
     // Body
     __Vtableidx1 = vlSelf->led;
-    vlSelf->top__DOT__ascii_code = Vtop__ConstPool__TABLE_h60869218_0
+    vlSelf->top__DOT__ascii_code = Vtop__ConstPool__TABLE_h768f7345_0
         [__Vtableidx1];
     vlSelf->top__DOT____Vcellinp__myseg3__b = (0xfU 
                                                & (IData)(vlSelf->top__DOT__ascii_code));

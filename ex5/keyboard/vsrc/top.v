@@ -48,7 +48,7 @@ module top(
             count <= count+1'b1;
         end
         //松开操作(断码存在),关四个灯
-        /*else if(data_Judge[1]==8'hf0)begin
+        else if(data_Judge[1]==8'hf0)begin
             seg0 <= 7'b1111111;
             seg1 <= 7'b1111111;
             seg3 <= 7'b1111111;

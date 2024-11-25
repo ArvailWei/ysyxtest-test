@@ -95,7 +95,7 @@ module scancode2ascii(
             //8'h52: ascii = 8'he0;//ins
             //8'h53: ascii = 8'he0;//del
 
-            default: ascii <= 8'hff;
+            default: ascii <= 8'bff;
         endcase
     end
 endmodule
